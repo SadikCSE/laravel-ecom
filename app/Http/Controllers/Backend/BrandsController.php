@@ -16,6 +16,8 @@ class BrandsController extends Controller
         return view('backend.pages.brands.index', compact('brands'));
     }
     public function create(){
+        $main_brands = Brand::orderBy('id','desc')->get();
+
         return view('backend.pages.brands.create',compact('main_brands'));
     }
     public function store(Request $request){
