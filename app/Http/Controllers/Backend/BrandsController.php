@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\ProductImage;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
@@ -15,11 +16,13 @@ class BrandsController extends Controller
         $brands = Brand::orderBy('id','desc')->get();
         return view('backend.pages.brands.index', compact('brands'));
     }
+
     public function create(){
         $main_brands = Brand::orderBy('id','desc')->get();
 
         return view('backend.pages.brands.create',compact('main_brands'));
     }
+
     public function store(Request $request){
         $this->validate($request, [
             'name' => 'required',
@@ -34,7 +37,7 @@ class BrandsController extends Controller
         $brand->name = $request->name;
         $brand->description = $request->description;
         //insert image also
-        if (count($request->image) > 0) {
+        if ($request->image) {
             $image = $request->file('image');
             $img = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/brands/' . $img);
@@ -48,16 +51,19 @@ class BrandsController extends Controller
         return redirect()->route('admin.brands');
 
     }
+
     public function edit($id){
         $brand= Brand::find($id);
+
         if(!is_null($brand)){
-            return view('backend.pages.brands.edit', compact('brand','brands'));
+            return view('backend.pages.brands.edit', compact('brand'));
         }else{
             return redirect()->route('admin.brands');
         }
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id): \Illuminate\Http\RedirectResponse
+    {
         $this->validate($request, [
             'name' => 'required',
             'image' => 'nullable|image',
@@ -71,7 +77,7 @@ class BrandsController extends Controller
         $brand->name = $request->name;
         $brand->description = $request->description;
         //insert image also
-        if (count($request->image) > 0) {
+        if ($request->image){
             //Delete the old image from folder
             if(File::exists('images/brands/'.$brand->image)){
                 File::delete('images/brands/'.$brand->image);

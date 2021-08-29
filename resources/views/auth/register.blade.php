@@ -19,8 +19,8 @@
 
                                     @if ($errors->has('first_name'))
                                         <span class="invalid-feedback">
-                      <strong>{{ $errors->first('first_name') }}</strong>
-                    </span>
+                                          <strong>{{ $errors->first('first_name') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -33,8 +33,8 @@
 
                                     @if ($errors->has('last_name'))
                                         <span class="invalid-feedback">
-                      <strong>{{ $errors->first('last_name') }}</strong>
-                    </span>
+                                          <strong>{{ $errors->first('last_name') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -47,8 +47,8 @@
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
-                      <strong>{{ $errors->first('email') }}</strong>
-                    </span>
+                                          <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -61,8 +61,8 @@
 
                                     @if ($errors->has('phone_no'))
                                         <span class="invalid-feedback">
-                      <strong>{{ $errors->first('phone_no') }}</strong>
-                    </span>
+                                          <strong>{{ $errors->first('phone_no') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -93,15 +93,15 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="street_address" class="col-md-4 col-form-label text-md-right">Street Address</label>
+                                <label for="state_address" class="col-md-4 col-form-label text-md-right">Street Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="street_address" type="text" class="form-control{{ $errors->has('street_address') ? ' is-invalid' : '' }}" name="street_address" value="{{ old('street_address') }}" required>
+                                    <input id="state_address" type="text" class="form-control{{ $errors->has('state_address') ? ' is-invalid' : '' }}" name="state_address" value="{{ old('state_address') }}" required>
 
-                                    @if ($errors->has('street_address'))
+                                    @if ($errors->has('state_address'))
                                         <span class="invalid-feedback">
-                      <strong>{{ $errors->first('street_address') }}</strong>
-                    </span>
+                                          <strong>{{ $errors->first('state_address') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -114,8 +114,8 @@
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback">
-                      <strong>{{ $errors->first('password') }}</strong>
-                    </span>
+                                          <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>

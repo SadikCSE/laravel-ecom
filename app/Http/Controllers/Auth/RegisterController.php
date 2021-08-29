@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'division_id' => 'required|numeric',
             'district_id' => 'required|numeric',
             'phone_no' => 'required|max:15',
-            'street_address' => 'required|max:100',
+            'state_address' => 'required|max:100',
         ]);
 
     }
@@ -97,7 +97,7 @@ class RegisterController extends Controller
             'division_id' => $data['division_id'],
             'district_id' => $data['district_id'],
             'phone_no' => $data['phone_no'],
-            'street_address' => $data['street_address'],
+            'state_address' => $data['state_address'],
             'ip_address' => request()->ip(),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
